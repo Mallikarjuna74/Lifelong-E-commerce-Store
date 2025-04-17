@@ -1,0 +1,33 @@
+@import "tailwindcss";
+.slider-track-container {
+    width: 100%; 
+    height: 1.5px; /* Change the height here */
+    background-color: orange; /* Change the background color here */
+    border-radius: 5px;
+  }
+  
+  .slider-track {
+    height: 100%;
+    background-color: black; /* Change the slider color here */
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.2s ease-in-out;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .divide-x > *:not(:last-child) {
+    border-right-width: 1px;
+    height: 100px; /* Custom height for divider */
+  }
+  .divide-y > *:not(:last-child) {
+    border-bottom-width: 1px;
+    width: 1000px; /* Custom width for divider */
+  }
+  
