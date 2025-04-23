@@ -67,76 +67,75 @@ function GiftSection() {
           className="flex flex-nowrap gap-[20px] overflow-x-auto scroll-smooth scrollbar-hide"
           style={{ cursor: 'grab' }}>
             <div className='min-w-[250px]'>
-                        <a href="">
-                            <div className="relative">
-                                <img className="w-75 h-75 rounded-2xl" src="public/For_Kids.png" alt=""/>
-                                <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
-                                    <h2>For Kids</h2>
-                                    <p>Starting At Rs. 199</p>
-                                </div>
-                            </div>
-                        </a>
+                <a href="">
+                    <div className="relative">
+                        <img className="w-75 h-75 rounded-2xl" src="public/For_Kids.png" alt=""/>
+                        <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
+                            <h2>For Kids</h2>
+                            <p>Starting At Rs. 199</p>
+                        </div>
                     </div>
-                    <div className='min-w-[250px]'>
-                        <a href="">
-                            <div className="relative">
-                            <img className="w-75 h-75 rounded-2xl" src="For_Home_Kitchen.png" alt=""/>
-                                <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
-                                    <h2>For Home & Kitchen</h2>
-                                    <p>Starting At Rs. 1,499</p>
-                                </div>
-                            </div>
-                        </a>
+                </a>
+            </div>
+            <div className='min-w-[250px]'>
+                <a href="">
+                    <div className="relative">
+                    <img className="w-75 h-75 rounded-2xl" src="For_Home_Kitchen.png" alt=""/>
+                        <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
+                            <h2>For Home & Kitchen</h2>
+                            <p>Starting At Rs. 1,499</p>
+                        </div>
                     </div>
-                    <div className='min-w-[250px]'>
-                        <a href="">
-                            <div className="relative">
-                            <img className="w-75 h-75 rounded-2xl" src="public/For_Fitness_Enthusiasts.png" alt=""/>
-                                <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
-                                    <h2>For Fitness Enthusiasts</h2>
-                                    <p>Starting At Rs. 499</p>
-                                </div>
-                            </div>
-                        </a>
+                </a>
+            </div>
+            <div className='min-w-[250px]'>
+                <a href="">
+                    <div className="relative">
+                    <img className="w-75 h-75 rounded-2xl" src="public/For_Fitness_Enthusiasts.png" alt=""/>
+                        <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
+                            <h2>For Fitness Enthusiasts</h2>
+                            <p>Starting At Rs. 499</p>
+                        </div>
                     </div>
-                    <div className='min-w-[250px]'>
-                        <a href="">
-                            <div className="relative">
-                            <img className="w-75 h-75 rounded-2xl" src="public/For_Wellness_Relaxation_Large.png" alt=""/>
-                                <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
-                                    <h2>Wellness &amp; Relaxation</h2>
-                                    <p>Starting At Rs. 199</p>
-                                </div>
-                            </div>
-                        </a>
+                </a>
+            </div>
+            <div className='min-w-[250px]'>
+                <a href="">
+                    <div className="relative">
+                    <img className="w-75 h-75 rounded-2xl" src="public/For_Wellness_Relaxation_Large.png" alt=""/>
+                        <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
+                            <h2>Wellness &amp; Relaxation</h2>
+                            <p>Starting At Rs. 199</p>
+                        </div>
                     </div>
-                    <div className='min-w-[250px]'>
-                        <a href="">
-                            <div className="relative">
-                            <img className="w-75 h-75 rounded-2xl" src="public/For_Gadget_Enthusiasts.png" alt=""/>
-                                <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
-                                    <h2>For Gadget Enthusiasts</h2>
-                                    <p>Starting At Rs. 999</p>
-                                </div>
-                            </div>
-                        </a>
+                </a>
+            </div>
+            <div className='min-w-[250px]'>
+                <a href="">
+                    <div className="relative">
+                    <img className="w-75 h-75 rounded-2xl" src="public/For_Gadget_Enthusiasts.png" alt=""/>
+                        <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
+                            <h2>For Gadget Enthusiasts</h2>
+                            <p>Starting At Rs. 999</p>
+                        </div>
                     </div>
-                    <div className='min-w-[250px]'>
-                        <a href="">
-                            <div className="relative">
-                            <img className="w-75 h-75 rounded-2xl" src="public/For_baby.png" alt=""/>
-                                <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
-                                    <h2>For Baby</h2>
-                                    <p>Starting at Rs. 899</p>
-                                </div>
-                            </div>
-                        </a>
+                </a>
+            </div>
+            <div className='min-w-[250px]'>
+                <a href="">
+                    <div className="relative">
+                    <img className="w-75 h-75 rounded-2xl" src="public/For_baby.png" alt=""/>
+                        <div className="absolute bottom-5 left-5 right-5 text-white bg-opacity-50 p-2 rounded">
+                            <h2>For Baby</h2>
+                            <p>Starting at Rs. 899</p>
+                        </div>
                     </div>
+                </a>
+            </div>
         </div>
         <div className="slider-track-container mt-4">
           <div ref={sliderRef} className="slider-track bg-amber-300"></div>
         </div>
-        
       </div>
     </section>
   );

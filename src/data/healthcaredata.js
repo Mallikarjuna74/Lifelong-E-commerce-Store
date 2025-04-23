@@ -1,0 +1,43 @@
+export const healthCareData = [
+    {
+        id: 1,
+        productName: "Adjustable Dumbbell Set",
+        imageUrl: "https://www.lifelongindiaonline.com/cdn/shop/files/LLAD03.jpg?v=1730928561&width=600",
+        linkUrl: "",
+        price: "Rs. 6,999.00",
+    },
+    {
+        id: 2,
+        productName: "Vibration Plate Machine",
+        imageUrl: "https://www.lifelongindiaonline.com/cdn/shop/files/LLM234.jpg?v=1730928596&width=600",
+        linkUrl: "",
+        price: "Rs. 5,849.00",
+    },
+    {
+        id: 3,
+        productName: "Fit Pro Fitness Bike, white",
+        imageUrl: "https://www.lifelongindiaonline.com/cdn/shop/files/LLSBB49.jpg?v=1730928643&width=600",
+        linkUrl: "",
+        price: "Rs. 9,999.00",
+    },
+
+    {   id: 4,
+        productName: "Fit Pro Motorised Treadmill",
+        imageUrl: "https://www.lifelongindiaonline.com/cdn/shop/files/Best-seller_LLTM09.jpg?v=1730927635&width=600",
+        linkUrl: "",
+        price: "Rs. 16,999.00",
+    },
+
+    {   id: 5,
+        productName: "Foldeable Walking pad Treadmill",
+        imageUrl: "https://www.lifelongindiaonline.com/cdn/shop/files/LLTM163.jpg?v=1730928727&width=600",
+        linkUrl: "",
+        price: "Rs. 13,999.00",
+    },
+    {   id: 6,
+        productName: "Lightweight Yoga Mat",
+        imageUrl: "https://www.lifelongindiaonline.com/cdn/shop/files/LLYM223.jpg?v=1730928757&width=600",
+        linkUrl: "",
+        price: "Rs. 599.00",
+    },
+]

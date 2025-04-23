@@ -1,33 +1,104 @@
 import HomeProductCard from "../ui/UI/HomeProductCard";
 import { homeProductData } from "../../data/homeproductdata";
+import { useState, useEffect, useRef } from "react";
 
 function HomeSection() {
   const HomeProducts = homeProductData; // Import the product data from the data file
+
+  const containerRef = useRef(null);
+  const sliderRef = useRef(null); // Create a ref for the slider element
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const slider = sliderRef.current; // Get the slider element
+
+    if (!container || !slider) return; // Ensure the container and slider are available
+
+
+    const handleMouseDown = (e) => {
+        setIsDragging(true);
+        setStartX(e.pageX - container.offsetLeft);
+        setScrollLeft(container.scrollLeft);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseMove = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2; // The multiplier controls the scroll speed
+        container.scrollLeft = scrollLeft - walk;
+    };
+
+    container.addEventListener('mousedown', handleMouseDown);
+    container.addEventListener('mouseleave', handleMouseLeave);
+    container.addEventListener('mouseup', handleMouseUp);
+    container.addEventListener('mousemove', handleMouseMove);
+
+    const handleSroll = () => {
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const scrollPercentage = (container.scrollLeft / maxScrollLeft) * 100;
+      slider.style.width = `${scrollPercentage}%`; // Update the slider width based on scroll position
+    };
+    
+    container.addEventListener('scroll', handleSroll); // Add scroll event listener to the container
+
+    return () => {
+      container.addEventListener('mousedown', handleMouseDown);
+      container.addEventListener('mouseleave', handleMouseLeave);
+      container.addEventListener('mouseup', handleMouseUp);
+      container.addEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('scroll', handleSroll); // Clean up the scroll event listener
+    };
+  }, [isDragging, startX, scrollLeft]); // Add dependencies to the useEffect
  return (
     <section>
       <div className="relative block w-full">
         <picture>
           <img className="block w-full h-full object-cover mt-0" src="//www.lifelongindiaonline.com/cdn/shop/files/Homepage.png?v=1727800656" alt="HomeCollectionSection" />
         </picture>
-        <div alt ="Home-Collection-Wrapper" className="absolute inset-0 flex items-center justify-center md:justify-start text-center md:text-left p-8 md:p-16 lg:p-50 z-10">
+        <div alt ="Home-Collection-Wrapper" className="absolute inset-0 flex items-center md:justify-start text-center md:text-left lg: z-10">
           <div className="flex justify-between items-center w-full h-auto">
-            <div alt="leftsection" className="absolute inset-0 flex items-center justify-center md:justify-start text-center md:text-left p-8 md:p-16 lg:p-50 z-10">
-              {HomeProducts.map((product) => (
-                <HomeProductCard 
-                key={product.id} 
-                imageUrl={product.imageUrl} 
-                altText={product.altText} 
-                productName={product.productName} 
-                price={product.price} 
-                productUrl={product.productUrl}
-              />
-              ))}
+            
+            <div alt="leftsection" className="w-[51%] flex md:justify-start">
+              <div ref={containerRef}
+                className="flex overflow-x-scroll scroll-smooth scrollbar-hide gap-5 scroll-container"
+                style={{ cursor: 'grab' }}>
+                  {HomeProducts.map((product) => ( 
+                    <HomeProductCard 
+                      key={product.id} 
+                      imageUrl={product.imageUrl} 
+                      altText={product.altText} 
+                      productName={product.productName} 
+                      price={product.price} 
+                      productUrl={product.productUrl}
+                    />
+                  ))}
+                </div>
+                <div className="slider-track-container">
+                  <div 
+                    ref={sliderRef} 
+                    className="slider-track"
+                    style={{ width: '0%' }}
+                    ></div>
+                </div>
             </div>
-            <div alt="rightsection">
-              <h2 className="text-white">Best Sellers</h2>
+
+            <div alt="rightsection" className="w-[49%] flex flex-col md:justify-start lg:justify-start gap-4 pl-120 pt-64">
+              <h2 className="flex max-w-90 text-white text-4xl font-light">Best Sellers</h2>
               <a href="/collections/best-sellers"
-                className="inline-flex items-center justify-center text-xs font-semibold text-[#B21F28] bg-white mt-2 px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200 w-auto h-auto"
-              >
+                className="flex w-43 items-center text-xs font-light text-[#B21F28] bg-white mt-2 px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                >
                 See All Products
                 <svg className="ml-2"  width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="8.5" cy="8.5" r="8" stroke="#B21F28"></circle>
