@@ -1,67 +1,12 @@
 import React from 'react';
-import { useState, useEffect, useRef } from "react";
 import HomeProductCard from "../ui/UI/HomeProductCard";
 import { healthCareData } from "../../data/healthcaredata";
+import { useDragScroll } from "../../hooks/useDragScrollHook"; // Import the custom hook
 
 function HealthcareSection() {
   const HealthCareProduct1 = healthCareData; // Import the product data from the data file
 
-  const containerRef = useRef(null);
-  const sliderRef = useRef(null); // Create a ref for the slider element
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const slider = sliderRef.current; // Get the slider element
-
-    if (!container || !slider) return; // Ensure the container and slider are available
-
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - container.offsetLeft);
-        setScrollLeft(container.scrollLeft);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 2; // The multiplier controls the scroll speed
-        container.scrollLeft = scrollLeft - walk;
-    };
-
-    container.addEventListener('mousedown', handleMouseDown);
-    container.addEventListener('mouseleave', handleMouseLeave);
-    container.addEventListener('mouseup', handleMouseUp);
-    container.addEventListener('mousemove', handleMouseMove);
-
-    const handleSroll = () => {
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-      const scrollPercentage = (container.scrollLeft / maxScrollLeft) * 100;
-      slider.style.width = `${scrollPercentage}%`; // Update the slider width based on scroll position
-    };
-    
-    container.addEventListener('scroll', handleSroll); // Add scroll event listener to the container
-
-    return () => {
-      container.addEventListener('mousedown', handleMouseDown);
-      container.addEventListener('mouseleave', handleMouseLeave);
-      container.addEventListener('mouseup', handleMouseUp);
-      container.addEventListener('mousemove', handleMouseMove);
-      container.removeEventListener('scroll', handleSroll); // Clean up the scroll event listener
-    };
-  }, [isDragging, startX, scrollLeft]); // Add dependencies to the useEffect
+  const { containerRef, sliderRef} = useDragScroll(); // Use the custom hook for drag scroll functionality
   
   return (
   <section>
@@ -74,7 +19,7 @@ function HealthcareSection() {
           <div alt="leftsection" className="w-[49%] flex flex-col md:justify-start lg:justify-start gap-4 pl-20 pt-55">
             <h2 className="flex max-w-90 text-white text-4xl font-light">Health & Fitness Equipments</h2>
             <a href="/collections/best-sellers"
-              className="flex w-43 items-center text-xs font-light text-[#B21F28] bg-white mt-2 px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
+              className="flex w-39 items-center text-xs font-light text-[#B21F28] bg-white mt-2 px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
               >
               See All Products
               <svg className="ml-2"  width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">

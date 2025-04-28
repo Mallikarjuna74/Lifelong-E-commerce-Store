@@ -79,7 +79,7 @@ function Herobanner() {
       <div className=" block w-full relative">
       <button
           type="button"
-          className="slick-prev absolute top-1/2 left-4 md:left-10 transform -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 border-1 border-white hover:bg-white/80 text-white rounded-full cursor-pointer transition-colors duration-200"
+          className="slick-prev absolute top-1/2 left-4 md:left-10 transform -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 border-1 border-white hover:bg-white/80 text-white rounded-full cursor-pointer transition-colors duration-600"
           aria-label="Previous Slide"
           onClick={handlePrev}
         >

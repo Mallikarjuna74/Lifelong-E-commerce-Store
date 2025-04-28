@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'; // Optional: for prop type validation
 
 function HomeProductCard ({ imageUrl, altText, productName, price, productUrl = "#" }) {
   return (
-    <div className="relative max-w-sm w-76 h-96 rounded-2xl overflow-hidden shadow-lg bg-white shrink-0 mb-10"style={{display: 'flex', flexDirection: 'column'}}>
+    <div className="relative max-w-sm w-76 h-96 rounded-2xl overflow-hidden shadow-lg bg-white shrink-0 mb-10" style={{display: 'flex', flexDirection: 'column'}}>
       <div>
         <a className='w-full' href="/products/calf-foot-leg-massager">
           <img 

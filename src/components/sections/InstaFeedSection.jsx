@@ -15,7 +15,7 @@ const feedItems = [
         altText: "Instagram post with the caption: 'Lifelong ke saath ab sajaiye IPL ki mehfil jaha aapka dil ka...'"
     },
     {
-        imgSrc: "https://scontent.cdninstagram.com/v/t51.75761-15/486066784_18325958956162193_1052114812502272225_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=1-7&_nc_sid=18de74&_nc_ohc=XuH3Gcydey4Q7kNvwF0AVkz&_nc_oc=Adld06O46oT2tEVlGwbw-sA1muDyO6oItC8XCR_U4qCXILW_QFBMKPNV9ZrhUYnnOl8&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=2vVV6t0FMoC_5xcZyVzehA&oh=00_AfETMaRVDmZCtaaq4OndD5-UZULwktKCf3VA7TvhkhlhBA&oe=67FA2B6C",
+        imgSrc: "https://scontent.cdninstagram.com/v/t51.75761-15/487311670_18326941075162193_5066690748395229179_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=1-7&_nc_sid=18de74&_nc_ohc=YbPzYvM3fQkQ7kNvwFpUE-6&_nc_oc=AdnMS2UmjHU1z3TFxs1x-b5b0xZA5F40OP_wPyBOzR9XOb_ZSB90Djwsj8neLRz7FYg&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=iQN7HF20ntz9FQsuOiRnMA&oh=00_AfEtReM8Kvig8KFPidyrCREBR8SWxmejX24K8EggpKwdfw&oe=680FE557",
         altText: "Instagram post with the caption: 'Bringing you the best deal of the season.Grab the ultimate ...'"
     },
     {
