@@ -1,62 +1,80 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
-export const useDragScroll = () => {
+export function useDragScroll() {
     const containerRef = useRef(null);
-    const sliderRef = useRef(null); // Create a ref for the slider element
+    const sliderRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const [scrollLeftStart, setScrollLeftStart] = useState(0); // Renamed for clarity
+
+    const handleMouseDown = useCallback((e) => {
+        if (!containerRef.current) return;
+        setIsDragging(true);
+        // Use clientX for consistency across browsers, pageX can be less reliable
+        setStartX(e.clientX - containerRef.current.offsetLeft);
+        setScrollLeftStart(containerRef.current.scrollLeft);
+        containerRef.current.style.cursor = 'grabbing'; // Change cursor on drag
+        containerRef.current.style.userSelect = 'none'; // Prevent text selection
+    }, []);
+
+    const handleMouseLeaveOrUp = useCallback(() => {
+        if (!isDragging) return; // Only act if dragging
+        setIsDragging(false);
+        if (containerRef.current) {
+            containerRef.current.style.cursor = 'grab'; // Restore cursor
+            containerRef.current.style.userSelect = ''; // Restore text selection
+        }
+    }, [isDragging]); // Depend on isDragging
+
+    const handleMouseMove = useCallback((e) => {
+        if (!isDragging || !containerRef.current) return;
+        e.preventDefault();
+        const x = e.clientX - containerRef.current.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed multiplier
+        containerRef.current.scrollLeft = scrollLeftStart - walk;
+    }, [isDragging, startX, scrollLeftStart]); // Depend on dragging state and positions
+
+    const updateSlider = useCallback(() => {
+        if (!containerRef.current || !sliderRef.current) return;
+        const container = containerRef.current;
+        const slider = sliderRef.current;
+        const maxScrollLeft = container.scrollWidth - container.clientWidth;
+        // Prevent division by zero if scrollWidth equals clientWidth
+        const scrollPercentage = maxScrollLeft > 0 ? (container.scrollLeft / maxScrollLeft) * 100 : 0;
+        // Ensure percentage doesn't go below 0 or above 100 due to potential bounce effects
+        slider.style.width = `${Math.max(0, Math.min(100, scrollPercentage))}%`;
+    }, []); // No dependencies needed if refs don't change
 
     useEffect(() => {
         const container = containerRef.current;
-        const slider = sliderRef.current; // Get the slider element
+        if (!container) return;
 
-        if (!container || !slider) return; // Ensure the container and slider are available
+        // Initial setup
+        container.style.cursor = 'grab';
+        updateSlider(); // Set initial slider width
 
-
-        const handleMouseDown = (e) => {
-            setIsDragging(true);
-            setStartX(e.pageX - container.offsetLeft);
-            setScrollLeft(container.scrollLeft);
-        };
-
-        const handleMouseLeave = () => {
-            setIsDragging(false);
-        };
-
-        const handleMouseUp = () => {
-            setIsDragging(false);
-        };
-
-        const handleMouseMove = (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 2; // The multiplier controls the scroll speed
-            container.scrollLeft = scrollLeft - walk;
-        };
-
+        // Add passive: false for mousemove if preventDefault is needed
         container.addEventListener('mousedown', handleMouseDown);
-        container.addEventListener('mouseleave', handleMouseLeave);
-        container.addEventListener('mouseup', handleMouseUp);
-        container.addEventListener('mousemove', handleMouseMove);
+        // Add listeners to window to catch mouseup/mouseleave even if cursor leaves the container
+        window.addEventListener('mouseup', handleMouseLeaveOrUp);
+        window.addEventListener('mousemove', handleMouseMove);
+        container.addEventListener('scroll', updateSlider, { passive: true }); // scroll can be passive
 
-        const handleSroll = () => {
-        const maxScrollLeft = container.scrollWidth - container.clientWidth;
-        const scrollPercentage = (container.scrollLeft / maxScrollLeft) * 100;
-        slider.style.width = `${scrollPercentage}%`; // Update the slider width based on scroll position
-        };
-        
-        container.addEventListener('scroll', handleSroll); // Add scroll event listener to the container
-
+        // Cleanup function
         return () => {
-        container.addEventListener('mousedown', handleMouseDown);
-        container.addEventListener('mouseleave', handleMouseLeave);
-        container.addEventListener('mouseup', handleMouseUp);
-        container.addEventListener('mousemove', handleMouseMove);
-        container.removeEventListener('scroll', handleSroll); // Clean up the scroll event listener
+            container.removeEventListener('mousedown', handleMouseDown);
+            window.removeEventListener('mouseup', handleMouseLeaveOrUp);
+            window.removeEventListener('mousemove', handleMouseMove);
+            container.removeEventListener('scroll', updateSlider);
+            // Reset styles if needed
+            if (container) {
+               container.style.cursor = '';
+               container.style.userSelect = '';
+            }
         };
-    }, [isDragging, startX, scrollLeft]); // Add dependencies to the useEffect
-    
+        // Rerun effect only if handlers change (which they shouldn't often with useCallback)
+    }, [handleMouseDown, handleMouseLeaveOrUp, handleMouseMove, updateSlider]);
+
+    // Return the refs to be attached to the elements
     return { containerRef, sliderRef };
 }

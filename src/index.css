@@ -1,5 +1,6 @@
 @import "tailwindcss";
 /* Add this to your global CSS file */
+ 
 .scroll-container::-webkit-scrollbar {
   width: 1px; /* Scrollbar width */
   height: 1px; /* Scrollbar height */
@@ -20,6 +21,23 @@
   margin-right: 3rem; /* Space on the right side of the scrollbar */
 }
 
+.gift-scroll-container::-webkit-scrollbar {
+  width: 100px; /* Scrollbar width */
+  height: 1px; /* Scrollbar height */
+}
+.gift-scroll-container::-webkit-scrollbar-thumb {
+  background: #B21F28; /* Color of scrollbar handle */
+  border-radius: 10px; /* Rounded corners */
+}
+.gift-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #A11E26; /* Handle color on hover */
+}
+.gift-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the scrollbar track */
+  margin-left: 1.5rem; /* Space on the left side of the scrollbar */
+  margin-right: 1.5rem; /* Space on the right side of the scrollbar */
+}
+  
 
 
 
