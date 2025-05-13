@@ -11,7 +11,7 @@ function NewArrival () {
                     <h2 className="text-3xl md:text-[36px] font-light">New Arrivals</h2>
                 </div>
                 <div>
-                    <div className="flex flex-wrap gap-5 justify-center">
+                    <div className="flex flex-wrap gap-5 justify-center space-x-4">
                         {NewArrivalProduct.map((product) => (
                             <NewArrivalCard
                                 key={product.id}

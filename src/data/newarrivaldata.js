@@ -13,7 +13,7 @@ export const newArrivals = [
         altText: "Baby Chair with Detachable Tray",
         title: "Baby Chair with Detachable Tray- Yellow & Blue",
         description: "This versatile baby chair features a detachable food tray and cover. Strong and durable, it’s perfect for dining or study, with a comfy foam cushion and portable design for easy movement.",
-        producturl: "https://www.lifelongindiaonline.com/products/baby-chair-with-detachable-tray-yellow-blue"
+        producturl: "/products/baby-chair-with-detachable-tray-yellow-blue"
     },
     {
         id: 3,
