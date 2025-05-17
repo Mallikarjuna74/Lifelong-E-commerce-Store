@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SearchBar  from "./Search.jsx"
 function Header() {
     return (
@@ -5,7 +6,9 @@ function Header() {
         <header>
             <div className="h-[80px] w-auto mx-0 px-4 py-4 flex justify-between items-center bg-black text-white border-b-[0.5px] border-#3a3a3a" >
                 <div className="w-43 flex justify-start items-center gap-x-4" >
-                    <img className="max-h-10 ml-20" src="/lifelong-logo.svg" alt="logo" />
+                    <Link to="/MainContent">
+                        <img className="max-h-10 ml-20" src="/lifelong-logo.svg" alt="logo" />
+                    </Link>
                 </div>
                 <div className="w-[770px] h-[40px] flex justify-center items-center">
                     <SearchBar />

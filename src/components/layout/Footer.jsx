@@ -1,7 +1,7 @@
 import LinkList from "../ui/UI/LinkList";
 import linkData from "../../data/linklist"; // Assuming you have a data file for the links
 
-function FooterSection() {
+function Footer() {
   const productLinkInfo = linkData.productLinks; // Assuming structure like { productLinks: [...], ... }
   const informationLinkInfo = linkData.informationLinks; // Assuming structure like { informationLinks: [...], ... }
   return (
@@ -96,6 +96,6 @@ function FooterSection() {
   );
 }
 
-export default FooterSection; // Export FooterSection as a named export
+export default Footer; // Export FooterSection as a named export
 
 

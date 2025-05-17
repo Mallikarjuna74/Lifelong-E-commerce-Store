@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react'; // Make sure to import useRef
+import { useState, useRef } from 'react'; // Make sure to import useRef
+import { Link } from 'react-router-dom'; // Import Link for navigation
 
-function BottomFooter () {
+
+function BottomHeader () {
     const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
     const closeDropdownTimeoutRef = useRef(null); // To store the timeout ID
 
@@ -36,8 +38,8 @@ function BottomFooter () {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <button
-                                type="button"
+                            <Link
+                                to="/Productpage"
                                 className="flex items-center focus:outline-none hover:text-gray-300 cursor-default"
                                 aria-haspopup="true"
                                 aria-expanded={isProductDropdownOpen}
@@ -54,11 +56,11 @@ function BottomFooter () {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
-                            </button>
+                            </Link>
                             {isProductDropdownOpen && (
                                 <div className="absolute top-full left-0 mt-5 w-290 h-65 bg-gray-100 text-white rounded-md shadow-lg z-50 py-1">
-                                    <ul class="sub-menu">
-                                        <div class="mega-menu-details">
+                                    <ul className="sub-menu">
+                                        <div className="mega-menu-details">
                                             <div className="menu-list flex flex-row items-start divide-x-2 divide-gray-200">
                                                 <div className="flex flex-row items-center mt-2  w-[50%]">
                                                     <li className="sub-menu-item pl-10">
@@ -122,11 +124,11 @@ function BottomFooter () {
                                                             <div className="product-image w-[60%]">
                                                                 <img className='w-[90%]' src="//www.lifelongindiaonline.com/cdn/shop/files/1__1_4867ec2c-645b-4db1-ac22-5000ef2e9361.jpg?v=1731420297" alt="600W Handheld Stick Vacuum Cleaner"/>
                                                             </div>
-                                                            <div class="product-content w-[40%] mr-3">
+                                                            <div className="product-content w-[40%] mr-3">
                                                                 <h3 className='text-base w-auto h-auto truncate'>
                                                                     600W Handheld Stick Vacuum Cleaner
                                                                 </h3>
-                                                                <div class="custom-price">
+                                                                <div className="custom-price">
                                                                     <span className="menu-item-price text-xs"><span className='text-red-800'>63%</span> Rs. 2,799.00 (<s>Rs. 7,499.00</s>)</span>
                                                                 </div>
                                                                 <a href="/products/600w-handheld-stick-vacuum-cleaner"
@@ -151,11 +153,11 @@ function BottomFooter () {
                                                             <div className="product-image w-[60%]">
                                                                 <img className='w-[90%] ml-2' src="//www.lifelongindiaonline.com/cdn/shop/files/1_b68354fb-68ef-48c8-a94b-93a55831da06.jpg?v=1731421786" alt="Adjustable Dumbbells Set"/>
                                                             </div>
-                                                            <div class="product-content w-[40%] mr-3">
+                                                            <div className="product-content w-[40%] mr-3">
                                                                 <h3 className='text-base w-auto h-auto truncate'>
                                                                     Adjustable Dumbbells Set
                                                                 </h3>
-                                                                <div class="custom-price">
+                                                                <div className="custom-price">
                                                                     <span className="menu-item-price text-xs"><span className='text-red-800'>72%</span> Rs. 6,999.00 (<s>Rs. 24,999.00</s>)</span>
                                                                 </div>
                                                                 <a href="/products/adjustable-dumbbells-set"
@@ -179,14 +181,14 @@ function BottomFooter () {
                             )}
                         </li>
                         <li>
-                            <a href="/gift-store" className="hover:text-gray-300">
+                            <Link to="/GiftStorePage" className="hover:text-gray-300">
                                 Gift Store
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/best-sellers" className="hover:text-gray-300">
+                            <Link to="/BestSellerPage" className="hover:text-gray-300">
                                 Best Sellers
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -220,11 +222,11 @@ function BottomFooter () {
                         Extended Warranty
                     </a>
                 </div>
-            </div>Name
+            </div>
         </div>
         </>
     )
 }
-export default BottomFooter;
+export default BottomHeader;
 
 

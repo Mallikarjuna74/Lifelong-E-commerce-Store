@@ -36,7 +36,7 @@ function HealthcareSection() {
                   <HomeProductCard 
                     key={product.id} 
                     imageUrl={product.imageUrl} 
-                    altText={product.altText} 
+                    altText={product.altText}  
                     productName={product.productName} 
                     price={product.price} 
                     productUrl={product.productUrl}

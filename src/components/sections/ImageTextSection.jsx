@@ -14,7 +14,8 @@ function ImageTextSection () {
                     <div className="w-[60%] h-full p-4 pr-20">
                         <div>
                             <p className="text text-white">Since 2015, Lifelong Online has been designing products that enhance modern living with ease and efficiency. Our wide range of home essentials, from kitchen appliances and home improvement tools to electronics and baby products, supports every aspect of your home. 
-                                We also offer wellness solutions, including sports & fitness gear, massagers, and grooming tools, designed to help you live a balanced, healthy lifestyle. Lifelong Online seamlessly fits into your everyday routine, offering products that simplify, support, and enrich the way you live.</p>
+                                We also offer wellness solutions, including sports & fitness gear, massagers, and grooming tools, designed to help you live a balanced, healthy lifestyle. Lifelong Online seamlessly fits into your everyday routine, offering products that simplify, support, and enrich the way you live.
+                            </p>
                         </div>
                     </div>
                 </div>

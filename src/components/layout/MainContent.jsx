@@ -8,7 +8,7 @@ import ShopifyCollectionSection from "../sections/ShopifyCollectionSection"
 import ComfortQualitySection from "../sections/ComfortQualityDesign"
 import ImageTextSection from "../sections/ImageTextSection"
 import InstaFeedSection from "../sections/InstaFeedSection"
-import FooterSection from "./Footer"
+
 function MainContent () {
     return (
         <div>
@@ -22,10 +22,6 @@ function MainContent () {
             <ComfortQualitySection />
             <ImageTextSection />
             <InstaFeedSection />
-            <FooterSection />
-
-
-
         </div>
     )
 }
