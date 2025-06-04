@@ -6,7 +6,9 @@ import Footer from './components/layout/Footer.jsx';
 import ProductPage from "./pages/Productpage.jsx"
 import GiftStorePage from "./pages/GiftStorePage.jsx"
 import BestSellerPage from './pages/BestSellerPage.jsx';
-
+import CartPage from './pages/CartPage.jsx';
+import Login from './pages/user/Login.jsx';
+import ProductDetailPage from './pages/ProductDetailPage.jsx'; 
 import "./App.css"
 function App() {
   
@@ -16,10 +18,12 @@ function App() {
       <BottomHeader/> {/* BottomFooter appears on all pages */}
       <div className="page-content-wrapper"> {/* Optional: for styling main content area */}
         <Routes>
-          <Route path="/MainContent" element={<MainContent/>} />
+          <Route path="/" element={<MainContent/>} />
           <Route path="/Productpage" element={<ProductPage/>} />
           <Route path="/GiftStorePage" element={<GiftStorePage/>} />
           <Route path="/BestSellerPage" element={<BestSellerPage/>} />
+          <Route path="/CartPage" element={<CartPage/>} />
+          <Route path="/Login" element={<Login/>} />
           {/* 
             Add routes for your new pages here, matching the hrefs in BottomFooter.jsx:
             <Route path="/gift-store" component={GiftStorePage} />
@@ -38,3 +42,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// Outputs: Hello, Universe!

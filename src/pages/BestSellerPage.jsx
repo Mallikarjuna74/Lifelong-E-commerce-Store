@@ -1,9 +1,16 @@
+import ProductListingPageLayout from "./ProductListingPageLayout";
+import { tabProducts } from "../data/ProductPageData/producttabitems";
+import { productsList } from "../data/ProductPageData/productlistitems";
+
 function BestSellerPage() {
   return (
-    <div>
-      <h1>Best Seller Page</h1>
-      <p>This is the best seller page.</p>
-    </div>
+   <ProductListingPageLayout
+      pageTitle="ALL LIFE LONG PRODUCTS"
+      breadcrumbText="Best Sellers"
+      productsData={tabProducts}
+      categoriesData={productsList}
+      // itemsPerPage={8} // This is the default in the layout, can be overridden
+    />
   );
 }
 export default BestSellerPage;

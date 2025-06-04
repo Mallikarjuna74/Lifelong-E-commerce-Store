@@ -4,9 +4,8 @@ import { giftData } from "../../data/giftdata";
 import GiftCard from "../ui/UI/GiftCard"; // Import the GiftCard component
 
 function GiftSection() {
-    const GiftProduct = giftData; // Import the product data from the data file
-    const { containerRef, sliderRef } = useDragScroll(); // Use the custom hook for drag scroll functionality
-
+  const GiftProduct = giftData; // Import the product data from the data file
+  const { containerRef, sliderRef } = useDragScroll(); // Use the custom hook for drag scroll functionality
   return (
     <section className="relative">
       <div className="pt-[84px] pb-[80px] mr-12 ml-22">
