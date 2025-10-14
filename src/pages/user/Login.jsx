@@ -145,8 +145,7 @@ function Login() {
                                     </Link>
                                 </p>
                                 <p>
-                                    {/* Assuming /account/register is a route in your app for registration */}
-                                    <Link to="/account/register" id="customer_register_link" className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-150">
+                                    <Link to="/SignUp" id="customer_register_link" className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-150">
                                         Create account
                                     </Link>
                                 </p>

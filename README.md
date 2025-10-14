@@ -1,12 +1,105 @@
-# React + Vite
+# Lifelong E-commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce platform built with React and Firebase, featuring user authentication, product management, and a responsive shopping experience.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**
+  - Email/Password Sign Up & Login
+  - Protected Routes
+  - Persistent Auth State
 
-## Expanding the ESLint configuration
+- **Shopping Experience**
+  - Product Catalog
+  - Shopping Cart
+  - Gift Store
+  - Best Sellers Section
+  - Detailed Product Views
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **Frontend:** React + Vite
+- **State Management:** Redux Toolkit
+- **Authentication:** Firebase Auth
+- **Styling:** Tailwind CSS
+- **Routing:** React Router DOM
+
+## 📁 Project Structure
+
+```
+lifelong-website/
+├── src/
+│   ├── appStore/          # Redux store configuration
+│   ├── components/        # Reusable components
+│   ├── features/          # Feature-specific code
+│   ├── pages/            # Page components
+│   └── firebase.js       # Firebase configuration
+```
+
+## 🚦 Getting Started
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Firebase account
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/lifelong-website.git
+```
+
+2. Install dependencies:
+```bash
+cd lifelong-website
+npm install
+```
+
+3. Create a `.env` file in the root directory:
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+## 🚀 Deployment
+
+Build for production:
+```bash
+npm run build
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## ✨ Acknowledgments
+
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
