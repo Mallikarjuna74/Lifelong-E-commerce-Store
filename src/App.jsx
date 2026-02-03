@@ -35,7 +35,7 @@ const PublicRoute = ({ children }) => {
 
 // This component contains the main layout and routing logic
 const AppRouter = () => (
-  <Router basename="/Lifelong-E-commerce-Store/">
+  <Router basename={import.meta.env.BASE_URL}>
     <Header />
     <BottomHeader />
     <div className="page-content-wrapper">
