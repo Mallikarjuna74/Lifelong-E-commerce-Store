@@ -1,0 +1,1 @@
+import{j as t}from"./vendor-LWs_NPV0.js";import{P as e,p as a,t as r}from"./ProductListingPageLayout-CkOiZXPp.js";function u(){return t.jsx(e,{pageTitle:"ALL LIFE LONG PRODUCTS",breadcrumbText:"Best Sellers",productsData:r,categoriesData:a})}export{u as default};

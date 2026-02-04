@@ -1,0 +1,1 @@
+import{j as t}from"./vendor-LWs_NPV0.js";import{P as r,p as a,t as o}from"./ProductListingPageLayout-CkOiZXPp.js";function u(){return t.jsx(t.Fragment,{children:t.jsx(r,{pageTitle:"ALL LIFE LONG PRODUCTS",breadcrumbText:"All Lifelong Products",productsData:o,categoriesData:a})})}export{u as default};
