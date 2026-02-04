@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 // Layout Components
 import Header from "./components/layout/Header.jsx";
 import BottomHeader from "./components/layout/BottomHeader.jsx";
 // Page Components
-import MainContent from "./components/layout/MainContent.jsx";
-import ProductPage from "./pages/Productpage.jsx";
-import GiftStorePage from "./pages/GiftStorePage.jsx";
-import BestSellerPage from './pages/BestSellerPage.jsx';
-import CartPage from './pages/CartPage.jsx';
-import Login from './pages/user/Login.jsx';
-import SignUp from './pages/user/SignUp.jsx';
-import ProductDetailPage from './pages/ProductDetailPage.jsx';
+const MainContent = React.lazy(() => import("./components/layout/MainContent.jsx"));
+const ProductPage = React.lazy(() => import("./pages/Productpage.jsx"));
+const GiftStorePage = React.lazy(() => import("./pages/GiftStorePage.jsx"));
+const BestSellerPage = React.lazy(() => import('./pages/BestSellerPage.jsx'));
+const CartPage = React.lazy(() => import('./pages/CartPage.jsx'));
+const Login = React.lazy(() => import('./pages/user/Login.jsx'));
+const SignUp = React.lazy(() => import('./pages/user/SignUp.jsx'));
+const ProductDetailPage = React.lazy(() => import('./pages/ProductDetailPage.jsx'));
 
 // Redux and Auth
 import { store } from './appStore/store.js';
@@ -39,21 +39,23 @@ const AppRouter = () => (
     <Header />
     <BottomHeader />
     <div className="page-content-wrapper">
-      <Routes>
-        {/* Public routes accessible to everyone */}
-        <Route path="/" element={<MainContent />} />
-        <Route path="/productpage" element={<ProductPage />} />
-        <Route path="/giftstorepage" element={<GiftStorePage />} />
-        <Route path="/bestsellerpage" element={<BestSellerPage />} />
-        <Route path="/products/:productSlug" element={<ProductDetailPage />} />
+      <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+        <Routes>
+          {/* Public routes accessible to everyone */}
+          <Route path="/" element={<MainContent />} />
+          <Route path="/productpage" element={<ProductPage />} />
+          <Route path="/giftstorepage" element={<GiftStorePage />} />
+          <Route path="/bestsellerpage" element={<BestSellerPage />} />
+          <Route path="/products/:productSlug" element={<ProductDetailPage />} />
 
-        {/* Auth routes for users who are not logged in */}
-        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-        <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
+          {/* Auth routes for users who are not logged in */}
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
 
-        {/* Private routes accessible only to logged-in users */}
-        <Route path="/cartpage" element={<PrivateRoute><CartPage /></PrivateRoute>} />
-      </Routes>
+          {/* Private routes accessible only to logged-in users */}
+          <Route path="/cartpage" element={<PrivateRoute><CartPage /></PrivateRoute>} />
+        </Routes>
+      </Suspense>
     </div>
     <Footer />
   </Router>
